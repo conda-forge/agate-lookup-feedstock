@@ -1,30 +1,22 @@
-{%set name = "agate-lookup" %}
 {%set version = "0.3.1" %}
-{%set compress_type = "tar.gz" %}
-{%set hash_type = "sha256" %}
-{%set hash_val = "0b0de078b1e56a88a37983f59d0e911272199ed08cebe88ed99390ae8cc12073" %}
-{%set build_num = "0" %}
 
 package:
-  name: {{ name|lower }}
+  name: agate-lookup
   version: {{ version }}
 
 source:
-  fn: {{ name }}-{{ version }}.{{ compress_type }}
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.{{ compress_type }}
-  {{ hash_type }}: {{ hash_val }}
+  url: https://pypi.io/packages/source/a/agate-lookup/agate-lookup-{{ version }}.tar.gz
+  sha256: 0b0de078b1e56a88a37983f59d0e911272199ed08cebe88ed99390ae8cc12073
 
 build:
+  number: 0
   noarch: python
-  number: {{ build_num }}
   script: python -m pip install --no-deps --ignore-installed .
 
 requirements:
   host:
-    - pip
     - python
-    - setuptools
-
+    - pip
   run:
     - python
     - agate >=1.5.0
