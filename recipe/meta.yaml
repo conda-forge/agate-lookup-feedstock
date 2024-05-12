@@ -1,4 +1,4 @@
-{% set version = "0.3.1" %}
+{% set version = "0.3.2" %}
 
 package:
   name: agate-lookup
@@ -6,12 +6,12 @@ package:
 
 source:
   url: https://pypi.io/packages/source/a/agate-lookup/agate-lookup-{{ version }}.tar.gz
-  sha256: 0b0de078b1e56a88a37983f59d0e911272199ed08cebe88ed99390ae8cc12073
+  sha256: e723549b4a3ca6c378b22a82e22e734c4424fd10a6e4f183b8cb7ef3ed5c904d
 
 build:
   number: 0
   noarch: python
-  script: python -m pip install --no-deps --ignore-installed .
+  script: {{ PYTHON }} -m pip install . --no-deps -vv
 
 requirements:
   host:
@@ -30,9 +30,10 @@ test:
 about:
   home: http://agate-lookup.readthedocs.org/
   license: MIT
+  license_file: COPYING
   license_family: MIT
   # license_file: COPYING - Non MANIFEST.in - see https://github.com/wireservice/agate-lookup/pull/22
-  summary: 'agate-lookup adds remote lookup tables to agate.'
+  summary: agate-lookup adds remote lookup tables to agate.
   doc_url: http://agate-lookup.readthedocs.org/
   dev_url: https://github.com/wireservice/agate-lookup
 
